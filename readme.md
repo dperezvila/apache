@@ -2,7 +2,7 @@
 
 ## Servidor apache
 
----
+~~~
 asir_apache:
     image: httpd:latest
     networks:
@@ -12,12 +12,12 @@ asir_apache:
       - 8081:80
     volumes:
       - apache-data:/usr/local/apache2/htdocs
----
+~~~
 Le asignamos una ip fija
 
 ## Servidor DNS
 
----
+~~~
 asir_bind9:
     image: internetsystemsconsortium/bind9:9.16
     networks:
@@ -30,12 +30,12 @@ asir_bind9:
       - options:/var/cache/bind
       - secondaryzones:/var/lib/bind
       - logfiles:/var/log
----
+~~~
 Le asignamos una ip fija, que será la ip del dns en el cliente
 
 ## Cliente
 
----
+~~~
 asir_cliente:
     image: kasmweb/desktop:1.10.0-rolling
     networks:
@@ -46,16 +46,16 @@ asir_cliente:
       - 6901:6901
     stdin_open: true  # docker run -i
     tty: true         # docker run -t
----
+~~~
 Le asignamos la el DNS 192.168.22.5 al cliente, que es la ip de nuestro DNS
 
 ### Redes
 
----
+~~~
 networks:
   apanet:
     external: true
----
+~~~
 
 ### Volumenes
 volumes:
@@ -66,11 +66,12 @@ volumes:
   options:
   secondaryzones:
   logfiles:
----
+<<<<<<< HEAD
+~~~
 
 ### Wireshark:
     
----
+~~~
     image: lscr.io/linuxserver/wireshark
     container_name: wireshark
     cap_add:
@@ -86,4 +87,4 @@ volumes:
       - 3000:3000 #optional
     restart: unless-stopped
     
----
+~~~
