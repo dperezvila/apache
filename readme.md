@@ -58,6 +58,7 @@ networks:
 ~~~
 
 ### Volumenes
+~~~
 volumes:
   apache-data:
     external: true
@@ -66,8 +67,8 @@ volumes:
   options:
   secondaryzones:
   logfiles:
-<<<<<<< HEAD
 ~~~
+
 
 ### Wireshark:
     
@@ -86,5 +87,4 @@ volumes:
     ports:
       - 3000:3000 #optional
     restart: unless-stopped
-    
 ~~~
