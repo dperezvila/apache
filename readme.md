@@ -67,3 +67,23 @@ volumes:
   secondaryzones:
   logfiles:
 ---
+
+### Wireshark:
+    
+---
+    image: lscr.io/linuxserver/wireshark
+    container_name: wireshark
+    cap_add:
+      - NET_ADMIN
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /path/to/config:/config
+    ports:
+      - 3000:3000 #optional
+    restart: unless-stopped
+    
+---
